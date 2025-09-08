@@ -14,14 +14,14 @@ class TreeNode {
 }
 
 public class BST {
-    private static boolean helper(TreeNode root, int min, int max) {
+    private static boolean helper(TreeNode root, Long min, Long max) {
         if (root == null) {
             return true;
         }
         if (root.val <= min || root.val >= max) {
             return false;
         }
-        if (helper(root.left, min, root.val) && helper(root.right, root.val, max)) {
+        if (helper(root.left, min, (long) root.val) && helper(root.right, (long) root.val, max)) {
             return true;
         }
 
@@ -29,7 +29,7 @@ public class BST {
     }
 
     public static boolean isBST(TreeNode root) {
-        return helper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
 
     }
 
